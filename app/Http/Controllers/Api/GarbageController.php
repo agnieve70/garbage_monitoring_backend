@@ -10,7 +10,7 @@ class GarbageController extends Controller
 {
     //
     function index(){
-        $garb = Garbages::get();
+        $garb = Garbages::join('users', 'users.id', 'garbages.user_id' )->get();
         return response()->json([
             "status" => 1,
             "message" => "Fetched Data",
