@@ -18,6 +18,15 @@ class GarbageController extends Controller
         ], 200);
     }
 
+    function getGarbageType($type){
+        $garb = Garbages::where('type', $type)->get();
+        return response()->json([
+            "status" => 1,
+            "message" => "Fetched Data",
+            "data" => $garb
+        ], 200);
+    }
+
     function getGarbage($id){
         $garb = Garbages::find($id);
         return response()->json([
@@ -33,6 +42,7 @@ class GarbageController extends Controller
             'no_sacks' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
+            'type' => 'required',
             'mrf_id' => 'required',
         ]);
 
@@ -41,6 +51,7 @@ class GarbageController extends Controller
         $garb->no_sacks = $request->no_sacks;
         $garb->latitude = $request->latitude;
         $garb->longitude = $request->longitude;
+        $garb->type = $request->type;
         $garb->mrf_id = $request->mrf_id;
         $garb->save();
 

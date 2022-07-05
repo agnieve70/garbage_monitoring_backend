@@ -19,6 +19,7 @@ class CreateGarbagesTable extends Migration
             $table->string('no_sacks');
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('type');
             $table->foreignId('mrf_id')->constrained('mrf');
             $table->timestamps();
         });
