@@ -11,6 +11,15 @@ use Exception;
 class RegisterController extends Controller
 {
     //
+
+    function getUsers(){
+        $users = User::get();
+        return response()->json([
+            "status" => 1,
+            "message" => "Fetched Data",
+            "data" => $users
+        ], 200);
+    }
     function index(Request $request){
         try {
 

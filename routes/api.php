@@ -21,6 +21,8 @@ Route::post("register", [ RegisterController::class, "index"]);
 Route::post("login", [ LoginController::class, "index"]);
 
 Route::group(["middleware" => ["auth:sanctum"]], function () {
+    Route::get("users", [ RegisterController::class, "getUsers"]);
+
     Route::get("mrf", [ MrfController::class, "index"]);
     Route::get("mrf/{id}", [ MrfController::class, "getMrf"]);
     Route::post("mrf/create", [ MrfController::class, "create"]);
