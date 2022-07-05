@@ -67,7 +67,7 @@ class GarbageController extends Controller
             $garb->latitude = $request->latitude;
             $garb->longitude = $request->longitude;
             $garb->type = $request->type;
-            $garb->mrf_id = $mrf->mrf_id;
+            $garb->mrf_id = $mrf->id;
             $garb->save();
     
             return response()->json([
