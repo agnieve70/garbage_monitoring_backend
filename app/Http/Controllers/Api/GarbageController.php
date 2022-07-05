@@ -18,6 +18,15 @@ class GarbageController extends Controller
         ], 200);
     }
 
+    function getGarbageTotalType($type){
+        $garb = Garbages::where('type', $type)->count();
+        return response()->json([
+            "status" => 1,
+            "message" => "Fetched Data",
+            "data" => $garb
+        ], 200);
+    }
+
     function getGarbageType($type){
         $garb = Garbages::where('type', $type)->get();
         return response()->json([

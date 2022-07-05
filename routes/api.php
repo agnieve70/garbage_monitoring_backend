@@ -26,6 +26,7 @@ Route::group(["middleware" => ["auth:sanctum"]], function () {
     Route::post("mrf/create", [ MrfController::class, "create"]);
 
     Route::get("garbages", [ GarbageController::class, "index"]);
+    Route::get("garbages/total/{type}", [ GarbageController::class, "getGarbageTotalType"]);
     Route::get("garbages/type/{type}", [ GarbageController::class, "getGarbageType"]);
     Route::get("garbage/{id}", [ GarbageController::class, "getGarbage"]);
     Route::post("garbage/create", [ GarbageController::class, "create"]);
